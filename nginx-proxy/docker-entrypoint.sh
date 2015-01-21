@@ -9,9 +9,13 @@ fi
 if [ -z "$PUBLIC_ADDRESS" ];
   then PUBLIC_ADDRESS="http://$PUBLIC_PORT_3000_TCP_ADDR:$PUBLIC_PORT_3000_TCP_PORT"
 fi
+if [ -z "$USER3_ADDRESS" ];
+  then USER3_ADDRESS="http://$USER3_PORT_9000_TCP_ADDR:$USER3_PORT_9000_TCP_PORT"
+fi
 
 /bin/sed -i "s@<API_ADDRESS>@${API_ADDRESS}@" /etc/nginx/sites-enabled/api
 /bin/sed -i "s@<USER_ADDRESS>@${USER_ADDRESS}@" /etc/nginx/sites-enabled/user
 /bin/sed -i "s@<PUBLIC_ADDRESS>@${PUBLIC_ADDRESS}@" /etc/nginx/sites-enabled/public
+/bin/sed -i "s@<USER3_ADDRESS>@${USER3_ADDRESS}@" /etc/nginx/sites-enabled/user3
 
 exec "$@"
