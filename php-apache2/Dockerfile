@@ -2,7 +2,7 @@ FROM php:5.6-apache
 
 ##install php modules##
 RUN apt-get update && apt-get install -y php5-mcrypt php5-curl php5-mysql && rm -rf /var/lib/apt/lists/*
-RUN apt-get update && apt-get install --yes libapache2-mod-php5 libbsd0 libedit2 libjson-c2 libmagic1 libonig2 libqdbm14 php5-cli php5-json php5-readline && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew libapache2-mod-php5 && rm -rf /var/lib/apt/lists/*
 
 ##open rewrite module##
 RUN a2enmod rewrite
