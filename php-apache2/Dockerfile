@@ -1,7 +1,7 @@
 FROM php:5.6-apache
 
 ##install php modules##
-RUN apt-get update && apt-get install -y php5-mcrypt php5-curl php5-mysql && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y php5-mcrypt php5-curl php5-mysql php5-gd && rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y -o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew libapache2-mod-php5 && rm -rf /var/lib/apt/lists/*
 
 ##open rewrite module##
