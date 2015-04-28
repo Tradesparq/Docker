@@ -12,8 +12,8 @@ RUN apt-get update \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /opt/oracle
-RUN unzip /instantclient-basic-linux.x64-12.1.0.2.0.zip -x /opt/oracle
-RUN unzip /instantclient-sdk-linux.x64-12.1.0.2.0.zip -x /opt/oracle
+RUN unzip /instantclient-basic-linux.x64-12.1.0.2.0.zip -d /opt/oracle
+RUN unzip /instantclient-sdk-linux.x64-12.1.0.2.0.zip -d /opt/oracle
 RUN mv /opt/oracle/instantclient_12_1 /opt/oracle/instantclient
 RUN ln -s /opt/oracle/instantclient/libclntsh.so.12.1 /opt/oracle/instantclient/libclntsh.so
 
