@@ -9,6 +9,7 @@ RUN apt-get update \
   && apt-get install -y libaio1 \
   && apt-get install -y build-essential \
   && apt-get install -y unzip \
+  && apt-get install -y curl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /opt/oracle
