@@ -5,16 +5,17 @@ MAINTAINER Sirius <fhc023@qq.com>
 ADD instantclient-basic-linux.x64-12.1.0.2.0.zip /
 ADD instantclient-sdk-linux.x64-12.1.0.2.0.zip /
 
+RUN apt-get update \
+  && apt-get install -y libaio1 \
+  && apt-get install -y build-essential \
+  && apt-get install -y unzip \
+  && rm -rf /var/lib/apt/lists/*
+
 RUN mkdir /opt/oracle
 RUN unzip /instantclient-basic-linux.x64-12.1.0.2.0.zip -x /opt/oracle
 RUN unzip /instantclient-sdk-linux.x64-12.1.0.2.0.zip -x /opt/oracle
 RUN mv /opt/oracle/instantclient_12_1 /opt/oracle/instantclient
 RUN ln -s /opt/oracle/instantclient/libclntsh.so.12.1 /opt/oracle/instantclient/libclntsh.so
-
-RUN apt-get update \
-  && apt-get install -y libaio1 \
-  && apt-get install -y build-essential \
-  && rm -rf /var/lib/apt/lists/*
 
 ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
 ENV OCI_LIB_DIR="/opt/oracle/instantclient"
