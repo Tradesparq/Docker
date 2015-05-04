@@ -23,6 +23,8 @@ ENV LD_LIBRARY_PATH="/opt/oracle/instantclient"
 ENV OCI_LIB_DIR="/opt/oracle/instantclient"
 ENV OCI_INC_DIR="/opt/oracle/instantclient/sdk/include"
 
+ENV NLS_LANG="AMERICAN_AMERICA.UTF8"
+
 ENV NODE_VERSION 0.10.38
 ENV NPM_VERSION 2.7.3
 
