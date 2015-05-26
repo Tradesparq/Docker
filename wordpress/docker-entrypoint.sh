@@ -133,12 +133,6 @@ do {
 	}
 } while ($mysql->connect_error);
 
-if (!$mysql->query('SOURCE /wordpress.sql')) {
-	fwrite($stderr, "\n" . 'MySQL "SOURCE DATABASE" Error: ' . $mysql->error . "\n");
-	$mysql->close();
-	exit(1);
-}
-
 $mysql->close();
 EOPHP
 
