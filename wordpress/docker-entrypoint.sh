@@ -34,6 +34,9 @@ if [ -z "$WORDPRESS_DB_PASSWORD" ]; then
 	exit 1
 fi
 
+mkdir -p blog
+cd blog
+
 if ! [ -e index.php -a -e wp-includes/version.php ]; then
 	echo >&2 "WordPress not found in $(pwd) - copying now..."
 	if [ "$(ls -A)" ]; then
