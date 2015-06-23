@@ -255,7 +255,7 @@
    <copyField source="origin_country" dest="text"/>
    <copyField source="dest_country" dest="text"/>
    <copyField source="origin_port" dest="text"/>
-   <copyField source="dest_port" dest="test"/>
+   <copyField source="dest_port" dest="text"/>
 
    <!-- Copy the price into a currency enabled field (default USD) -->
    <copyField source="price" dest="price_c"/>
