@@ -20,7 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   ln -s /opt/$SOLR /opt/solr && \
   chown -R $SOLR_USER:$SOLR_USER /opt/solr /opt/$SOLR
 
-ADD configsets/customs-records /opt/solr/server/solr/configsets/
+ADD configsets/customs-records/ /opt/solr/server/solr/configsets/customs-records/
 
 EXPOSE 8983
 WORKDIR /opt/solr
