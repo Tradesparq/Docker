@@ -120,41 +120,43 @@
      required, it is highly recommended. A <uniqueKey> is present in almost all Solr
      installations. See the <uniqueKey> declaration below where <uniqueKey> is set to "id".
    -->
-   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="Id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-   <field name="arival" type="date" indexed="true" stored="true" docValues="true"/>
+   <field name="ArrivalDate" type="date" indexed="true" stored="true" docValues="true"/>
 
-   <field name="weight" type="float" indexed="true" stored="true"/>
-   <field name="price"  type="float" indexed="true" stored="true"/>
-   <field name="teu" type="float" indexed="true" stored="true"/>
-   <field name="piece" type="int" indexed="true" stored="true" />
+   <field name="Weight" type="float" indexed="true" stored="true"/>
+   <field name="Price"  type="float" indexed="true" stored="true"/>
+   <field name="Teu" type="float" indexed="true" stored="true"/>
+   <field name="Piece" type="int" indexed="true" stored="true" />
 
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
-   <field name="importer" type="text_general" indexed="true" stored="true"/>
-   <field name="exporter" type="text_general" indexed="true" stored="true"/>
-   <field name="origin_country" type="text_general" indexed="true" stored="true"/>
-   <field name="dest_country" type="text_general" indexed="true" stored="true"/>
-   <field name="origin_port" type="text_general" indexed="true" stored="true"/>
-   <field name="dest_port" type="text_general" indexed="true" stored="true"/>
-   <field name="description" type="text_general" indexed="true" stored="true"/>
+   <field name="Importer" type="text_general" indexed="true" stored="true"/>
+   <field name="Exporter" type="text_general" indexed="true" stored="true"/>
+   <field name="OriginCountry" type="text_general" indexed="true" stored="true"/>
+   <field name="DestCountry" type="text_general" indexed="true" stored="true"/>
+   <field name="OriginPort" type="text_general" indexed="true" stored="true"/>
+   <field name="DestPort" type="text_general" indexed="true" stored="true"/>
+   <field name="Description" type="text_general" indexed="true" stored="true"/>
 
-   <field name="importer_en" type="text_en" indexed="true" stored="true"/>
-   <field name="exporter_en" type="text_en" indexed="true" stored="true"/>
-   <field name="origin_country_en" type="text_en" indexed="true" stored="true"/>
-   <field name="dest_country_en" type="text_en" indexed="true" stored="true"/>
-   <field name="origin_port_en" type="text_en" indexed="true" stored="true"/>
-   <field name="dest_port_en" type="text_en" indexed="true" stored="true"/>
-   <field name="description_en" type="text_en" indexed="true" stored="true"/>
+   <field name="ImporterEn" type="text_en" indexed="true" stored="true"/>
+   <field name="ExporterEn" type="text_en" indexed="true" stored="true"/>
+   <field name="OriginCountryEn" type="text_en" indexed="true" stored="true"/>
+   <field name="DestCountryEn" type="text_en" indexed="true" stored="true"/>
+   <field name="OriginPortEn" type="text_en" indexed="true" stored="true"/>
+   <field name="DestPortEn" type="text_en" indexed="true" stored="true"/>
+   <field name="DescriptionEn" type="text_en" indexed="true" stored="true"/>
 
    <!-- Main body of document extracted by SolrCell.
         NOTE: This field is not indexed by default, since it is also copied to "text"
         using copyField below. This is to save space. Use this field for returning and
         highlighting document content. Use the "text" field to search the content. -->
-   <field name="content" type="text_general" indexed="false" stored="true" multiValued="true"/>
+   <!--<field name="content" type="text_general" indexed="false" stored="true" multiValued="true"/>-->
 
    <!-- catchall field, containing all other searchable text fields (implemented
         via copyField further on in this schema  -->
    <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
+
+   <field name="text_en" type="text_en" indexed="true" stored="false" multiValued="true"/>
 
    <!-- catchall text field that indexes tokens both normally and in reverse for efficient
         leading wildcard queries. -->
@@ -250,31 +252,51 @@
         is added to the index.  It's used either to index the same field differently,
         or to add multiple fields to the same field for easier/faster searching.  -->
 
-   <copyField source="importer" dest="text"/>
-   <copyField source="exporter" dest="text"/>
-   <copyField source="origin_country" dest="text"/>
-   <copyField source="dest_country" dest="text"/>
-   <copyField source="origin_port" dest="text"/>
-   <copyField source="dest_port" dest="text"/>
+   <copyField source="Importer" dest="text"/>
+   <copyField source="Exporter" dest="text"/>
+   <copyField source="OriginCountry" dest="text"/>
+   <copyField source="DestCountry" dest="text"/>
+   <copyField source="OriginPort" dest="text"/>
+   <copyField source="DestPort" dest="text"/>
 
    <!-- Copy the price into a currency enabled field (default USD) -->
-   <copyField source="price" dest="price_c"/>
+   <copyField source="Price" dest="Price_c"/>
 
    <!-- Create a string version of importer for faceting -->
-   <copyField source="importer" dest="importer_s"/>
+   <copyField source="Importer" dest="Importer_s"/>
    <!-- Create a string version of exporter for faceting -->
-   <copyField source="exporter" dest="exporter_s"/>
+   <copyField source="Exporter" dest="Exporter_s"/>
    <!-- Create a string version of origin_country for faceting -->
-   <copyField source="origin_country" dest="origin_country_s"/>
-   <!-- Create a string version of dest_country for faceting -->
-   <copyField source="dest_country" dest="dest_country_s"/>
+   <copyField source="OriginCountry" dest="OriginCountry_s"/>
+   <!-- Create a string version of DestCountry for faceting -->
+   <copyField source="DestCountry" dest="DestCountry_s"/>
    <!-- Create a string version of origin_port for faceting -->
-   <copyField source="origin_port" dest="origin_port_s"/>
+   <copyField source="OriginPort" dest="OriginPort_s"/>
    <!-- Create a string version of dest_port for faceting -->
-   <copyField source="dest_port" dest="dest_port_s"/>
+   <copyField source="DestPort" dest="DestPort_s"/>
 
-   <!-- Create a tdate version of arival for range faceting and query -->
-   <copyField source="arival" dest="arival_tdt"/>
+   <copyField source="ImporterEn" dest="text_en"/>
+   <copyField source="ExporterEn" dest="text_en"/>
+   <copyField source="OriginCountryEn" dest="text_en"/>
+   <copyField source="DestCountryEn" dest="text_en"/>
+   <copyField source="OriginPortEn" dest="text_en"/>
+   <copyField source="DestPortEn" dest="text_en"/>
+
+   <!-- Create a string version of Importer for faceting -->
+   <copyField source="ImporterEn" dest="ImporterEn_s"/>
+   <!-- Create a string version of Exporter for faceting -->
+   <copyField source="ExporterEn" dest="ExporterEn_s"/>
+   <!-- Create a string version of OriginCountry for faceting -->
+   <copyField source="OriginCountryEn" dest="OriginCountryEn_s"/>
+   <!-- Create a string version of DestCountry for faceting -->
+   <copyField source="DestCountryEn" dest="DestCountryEn_s"/>
+   <!-- Create a string version of OriginPort for faceting -->
+   <copyField source="OriginPortEn" dest="OriginPortEn_s"/>
+   <!-- Create a string version of DestPort for faceting -->
+   <copyField source="DestPortEn" dest="DestPortEn_s"/>
+
+   <!-- Create a tdate version of arrival date for range faceting and query -->
+   <copyField source="ArrivalDate" dest="ArrivalDate_tdt"/>
 
    <!-- Above, multiple source fields are copied to the [text] field.
           Another way to map multiple source fields to the same
