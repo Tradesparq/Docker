@@ -1,7 +1,7 @@
 FROM    java:8
 MAINTAINER Sirius "fhc023@qq.com"
 
-ENV SOLR_VERSION 5.2.1
+ENV SOLR_VERSION 4.3.0
 ENV SOLR solr-$SOLR_VERSION
 ENV SOLR_USER solr
 
@@ -19,8 +19,6 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   rm /opt/$SOLR.tgz && \
   ln -s /opt/$SOLR /opt/solr && \
   chown -R $SOLR_USER:$SOLR_USER /opt/solr /opt/$SOLR
-
-ADD configsets/customs-records/ /opt/solr/server/solr/configsets/customs-records/
 
 EXPOSE 8983
 WORKDIR /opt/solr
