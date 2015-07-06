@@ -122,28 +122,24 @@
    -->
    <field name="Id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
-   <field name="ArrivalDate" type="date" indexed="true" stored="true" docValues="true"/>
+   <field name="ArrivalDate" type="date" indexed="true" stored="false" docValues="true"/>
 
-   <field name="Weight" type="float" indexed="true" stored="true"/>
-   <field name="Price"  type="float" indexed="true" stored="true"/>
-   <field name="Teu" type="float" indexed="true" stored="true"/>
-   <field name="Piece" type="int" indexed="true" stored="true" />
+   <field name="HsCode" type="string" indexed="true" stored="false"/>
+   <field name="Weight" type="float" indexed="true" stored="false"/>
+   <field name="Price"  type="float" indexed="true" stored="false"/>
+   <field name="Teu" type="float" indexed="true" stored="false"/>
+   <field name="Piece" type="int" indexed="true" stored="false"/>
 
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
    <field name="Importer" type="text_general" indexed="true" stored="true"/>
    <field name="Exporter" type="text_general" indexed="true" stored="true"/>
-   <field name="OriginCountry" type="text_general" indexed="true" stored="true"/>
-   <field name="DestCountry" type="text_general" indexed="true" stored="true"/>
-   <field name="OriginPort" type="text_general" indexed="true" stored="true"/>
-   <field name="DestPort" type="text_general" indexed="true" stored="true"/>
+   <field name="OriginCountry" type="text_en" indexed="true" stored="false"/>
+   <field name="DestCountry" type="text_en" indexed="true" stored="false"/>
+   <field name="OriginPort" type="text_en" indexed="true" stored="false"/>
+   <field name="DestPort" type="text_en" indexed="true" stored="false"/>
+   <field name="Address" type="text_general" indexed="true" stored="true"/>
    <field name="Description" type="text_general" indexed="true" stored="true"/>
 
-   <field name="ImporterEn" type="text_en" indexed="true" stored="true"/>
-   <field name="ExporterEn" type="text_en" indexed="true" stored="true"/>
-   <field name="OriginCountryEn" type="text_en" indexed="true" stored="true"/>
-   <field name="DestCountryEn" type="text_en" indexed="true" stored="true"/>
-   <field name="OriginPortEn" type="text_en" indexed="true" stored="true"/>
-   <field name="DestPortEn" type="text_en" indexed="true" stored="true"/>
    <field name="DescriptionEn" type="text_en" indexed="true" stored="true"/>
 
    <!-- Main body of document extracted by SolrCell.
@@ -258,6 +254,9 @@
    <copyField source="DestCountry" dest="text"/>
    <copyField source="OriginPort" dest="text"/>
    <copyField source="DestPort" dest="text"/>
+   <copyField source="Address" dest="text"/>
+
+   <copyField source="Description" dest="text"/>
 
    <!-- Copy the price into a currency enabled field (default USD) -->
    <copyField source="Price" dest="Price_c"/>
@@ -274,26 +273,6 @@
    <copyField source="OriginPort" dest="OriginPort_s"/>
    <!-- Create a string version of dest_port for faceting -->
    <copyField source="DestPort" dest="DestPort_s"/>
-
-   <copyField source="ImporterEn" dest="text_en"/>
-   <copyField source="ExporterEn" dest="text_en"/>
-   <copyField source="OriginCountryEn" dest="text_en"/>
-   <copyField source="DestCountryEn" dest="text_en"/>
-   <copyField source="OriginPortEn" dest="text_en"/>
-   <copyField source="DestPortEn" dest="text_en"/>
-
-   <!-- Create a string version of Importer for faceting -->
-   <copyField source="ImporterEn" dest="ImporterEn_s"/>
-   <!-- Create a string version of Exporter for faceting -->
-   <copyField source="ExporterEn" dest="ExporterEn_s"/>
-   <!-- Create a string version of OriginCountry for faceting -->
-   <copyField source="OriginCountryEn" dest="OriginCountryEn_s"/>
-   <!-- Create a string version of DestCountry for faceting -->
-   <copyField source="DestCountryEn" dest="DestCountryEn_s"/>
-   <!-- Create a string version of OriginPort for faceting -->
-   <copyField source="OriginPortEn" dest="OriginPortEn_s"/>
-   <!-- Create a string version of DestPort for faceting -->
-   <copyField source="DestPortEn" dest="DestPortEn_s"/>
 
    <!-- Create a tdate version of arrival date for range faceting and query -->
    <copyField source="ArrivalDate" dest="ArrivalDate_tdt"/>
