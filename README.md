@@ -1,4 +1,6 @@
-Docker
-======
+### tradesparq/gentilis
 
-For docker image building
+#### Usage
+```bash
+sudo docker run -it -d --name="redis" -p 6379:6379 tradesparq/redis
+```
