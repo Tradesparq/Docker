@@ -130,6 +130,9 @@
    <field name="Teu" type="float" indexed="true" stored="false"/>
    <field name="Piece" type="int" indexed="true" stored="false"/>
 
+   <field name="IsMember" type="boolean" indexed="true" stored="false"/>
+   <field name="HasEmail" type="boolean" indexed="true" stored="false"/>
+
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
    <field name="Importer" type="text_general" indexed="true" stored="true"/>
    <field name="Exporter" type="text_general" indexed="true" stored="true"/>
