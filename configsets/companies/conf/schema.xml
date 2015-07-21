@@ -129,7 +129,7 @@
    <field name="name_t_3" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_rest" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_type" type="text_general" indexed="true" stored="false"/>
-   <field name="names" type="text_general" indexed="true" stored="false" multiValued="true"/>
+   <field name="aliases" type="text_general" indexed="true" stored="false" multiValued="true"/>
    <field name="address" type="text_general" indexed="true" stored="false"/>
 
    <!-- Main body of document extracted by SolrCell.
