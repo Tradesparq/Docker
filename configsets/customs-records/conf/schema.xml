@@ -130,12 +130,16 @@
    <field name="Teu" type="float" indexed="true" stored="false"/>
    <field name="Piece" type="int" indexed="true" stored="false"/>
 
-   <field name="IsMember" type="boolean" indexed="true" stored="false"/>
-   <field name="HasEmail" type="boolean" indexed="true" stored="false"/>
+   <field name="ImporterIsMember" type="boolean" indexed="true" stored="false"/>
+   <field name="ExporterIsMember" type="boolean" indexed="true" stored="false"/>
+   <field name="ImporterHasEmail" type="boolean" indexed="true" stored="false"/>
+   <field name="ExporterHasEmail" type="boolean" indexed="true" stored="false"/>
 
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
    <field name="Importer" type="text_general" indexed="true" stored="true"/>
+   <field name="ImporterId" type="string" indexed="true" stored="false"/>
    <field name="Exporter" type="text_general" indexed="true" stored="true"/>
+   <field name="ExporterId" type="string" indexed="true" stored="false"/>
    <field name="OriginCountry" type="text_en" indexed="true" stored="false"/>
    <field name="DestCountry" type="text_en" indexed="true" stored="false"/>
    <field name="OriginPort" type="text_en" indexed="true" stored="false"/>
