@@ -144,7 +144,8 @@
    <field name="DestCountry" type="text_en" indexed="true" stored="false"/>
    <field name="OriginPort" type="text_en" indexed="true" stored="false"/>
    <field name="DestPort" type="text_en" indexed="true" stored="false"/>
-   <field name="Address" type="text_general" indexed="true" stored="true"/>
+   <field name="ExporterAddress" type="text_general" indexed="true" stored="true"/>
+   <field name="ImporterAddress" type="text_general" indexed="true" stored="true"/>
    <field name="Description" type="text_general" indexed="true" stored="true"/>
 
    <field name="DescriptionEn" type="text_en" indexed="true" stored="true"/>
