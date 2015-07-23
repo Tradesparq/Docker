@@ -269,7 +269,8 @@
    <copyField source="DestCountry" dest="text"/>
    <copyField source="OriginPort" dest="text"/>
    <copyField source="DestPort" dest="text"/>
-   <copyField source="Address" dest="text"/>
+   <copyField source="ExporterAddress" dest="text"/>
+   <copyField source="ImporterAddress" dest="text"/>
 
    <copyField source="Description" dest="text"/>
 
