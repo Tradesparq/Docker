@@ -168,12 +168,12 @@
         leading wildcard queries. -->
    <field name="text_rev" type="text_general_rev" indexed="true" stored="false" multiValued="true"/>
 
-   <field name="Importer_s" type="string" indexed="false" stored="false" docValues="true"/>
-   <field name="Exporter_s" type="string" indexed="false" stored="false" docValues="true"/>
-   <field name="OriginCountry_s" type="string" indexed="false" stored="false" docValues="true"/>
-   <field name="DestCountry_s" type="string" indexed="false" stored="false" docValues="true"/>
-   <field name="OriginPort_s" type="string" indexed="false" stored="false" docValues="true"/>
-   <field name="DestPort_s" type="string" indexed="false" stored="false" docValues="true"/>
+   <field name="Importer_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="Exporter_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="OriginCountry_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="DestCountry_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="OriginPort_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="DestPort_s" type="string" indexed="true" stored="false" docValues="true"/>
 
 
    <!--
