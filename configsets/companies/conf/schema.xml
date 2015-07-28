@@ -120,19 +120,19 @@
      required, it is highly recommended. A <uniqueKey> is present in almost all Solr
      installations. See the <uniqueKey> declaration below where <uniqueKey> is set to "id".
    -->
-   <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="Id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
 
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
-   <field name="name" type="text_general" indexed="true" stored="false"/>
+   <field name="Name" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_1" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_2" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_3" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_rest" type="text_general" indexed="true" stored="false"/>
    <field name="name_t_type" type="text_general" indexed="true" stored="false"/>
-   <field name="aliases" type="text_general" indexed="true" stored="false" multiValued="true"/>
-   <field name="address" type="text_general" indexed="true" stored="false"/>
+   <field name="Aliases" type="text_general" indexed="true" stored="false" multiValued="true"/>
+   <field name="Address" type="text_general" indexed="true" stored="false"/>
 
-   <field name="creation_time" type="date" indexed="true" stored="false"/>
+   <field name="CreationTime" type="date" indexed="true" stored="false"/>
 
    <!-- Main body of document extracted by SolrCell.
         NOTE: This field is not indexed by default, since it is also copied to "text"
@@ -219,7 +219,7 @@
  <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
    -->
- <uniqueKey>id</uniqueKey>
+ <uniqueKey>Id</uniqueKey>
 
  <!-- DEPRECATED: The defaultSearchField is consulted by various query parsers when
   parsing a query string that isn't explicit about the field.  Machine (non-user)
@@ -240,8 +240,8 @@
         is added to the index.  It's used either to index the same field differently,
         or to add multiple fields to the same field for easier/faster searching.  -->
 
-   <copyField source="name" dest="text"/>
-   <copyField source="address" dest="text"/>
+   <copyField source="Name" dest="text"/>
+   <copyField source="Address" dest="text"/>
 
    <!-- Above, multiple source fields are copied to the [text] field.
           Another way to map multiple source fields to the same
