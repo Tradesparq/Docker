@@ -37,3 +37,5 @@ docker run --restart=always --name solr2 --link zookeeper:ZK -d -p 8984:8983   t
 docker exec -i -t solr1 /opt/solr/bin/solr create   -c customs-records -d customs-records -p 8983 -rf 2
 docker exec -i -t solr1 /opt/solr/bin/solr create   -c companies -d companies -p 8983 -rf 2
 ```
+
+...
