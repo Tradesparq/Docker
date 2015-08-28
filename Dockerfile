@@ -26,4 +26,4 @@ ADD configsets/companies/ /opt/solr/server/solr/configsets/companies/
 EXPOSE 8983
 WORKDIR /opt/solr
 USER $SOLR_USER
-CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f"]
+CMD ["/bin/bash", "-c", "/opt/solr/bin/solr -f -m 2048m"]
