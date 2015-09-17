@@ -134,6 +134,8 @@
    <field name="ExporterIsMember" type="boolean" indexed="true" stored="false"/>
    <field name="ImporterHasEmail" type="boolean" indexed="true" stored="false"/>
    <field name="ExporterHasEmail" type="boolean" indexed="true" stored="false"/>
+   <field name="ImporterIsLogistic" type="boolean" indexed="true" stored="false"/>
+   <field name="ExporterIsLogistic" type="boolean" indexed="true" stored="false"/>
 
    <!--<field name="store" type="location" indexed="true" stored="true"/>-->
    <field name="Importer" type="text_general" indexed="true" stored="true"/>
@@ -144,6 +146,10 @@
    <field name="DestCountry" type="text_en" indexed="true" stored="false"/>
    <field name="OriginPort" type="text_en" indexed="true" stored="false"/>
    <field name="DestPort" type="text_en" indexed="true" stored="false"/>
+   <field name="MergedOriginCountry" type="text_en" indexed="true" stored="false"/>
+   <field name="MergedDestCountry" type="text_en" indexed="true" stored="false"/>
+   <field name="MergedOriginPort" type="text_en" indexed="true" stored="false"/>
+   <field name="MergedDestPort" type="text_en" indexed="true" stored="false"/>
    <field name="ExporterAddress" type="text_general" indexed="true" stored="true"/>
    <field name="ImporterAddress" type="text_general" indexed="true" stored="true"/>
    <field name="Description" type="text_general" indexed="true" stored="true"/>
@@ -174,6 +180,10 @@
    <field name="DestCountry_s" type="string" indexed="true" stored="false" docValues="true"/>
    <field name="OriginPort_s" type="string" indexed="true" stored="false" docValues="true"/>
    <field name="DestPort_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="MergedOriginCountry_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="MergedDestCountry_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="MergedOriginPort_s" type="string" indexed="true" stored="false" docValues="true"/>
+   <field name="MergedDestPort_s" type="string" indexed="true" stored="false" docValues="true"/>
 
 
    <!--
@@ -291,6 +301,14 @@
    <copyField source="OriginPort" dest="OriginPort_s"/>
    <!-- Create a string version of dest_port for faceting -->
    <copyField source="DestPort" dest="DestPort_s"/>
+   <!-- Create a string version of origin_country for faceting -->
+   <copyField source="MergedOriginCountry" dest="MergedOriginCountry_s"/>
+   <!-- Create a string version of DestCountry for faceting -->
+   <copyField source="MergedDestCountry" dest="MergedDestCountry_s"/>
+   <!-- Create a string version of origin_port for faceting -->
+   <copyField source="MergedOriginPort" dest="MergedOriginPort_s"/>
+   <!-- Create a string version of dest_port for faceting -->
+   <copyField source="MergedDestPort" dest="MergedDestPort_s"/>
 
    <!-- Create a tdate version of arrival date for range faceting and query -->
    <copyField source="ArrivalDate" dest="ArrivalDate_tdt"/>
