@@ -153,6 +153,7 @@
    <field name="ExporterAddress" type="text_general" indexed="true" stored="true"/>
    <field name="ImporterAddress" type="text_general" indexed="true" stored="true"/>
    <field name="Description" type="text_general" indexed="true" stored="true"/>
+   <field name="RawDataSource" type="string" indexed="true" stored="false"/>
 
    <field name="DescriptionEn" type="text_en" indexed="true" stored="true"/>
 
