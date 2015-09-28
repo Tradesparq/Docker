@@ -53,7 +53,7 @@ BUILD_PACKAGES="php5-fpm php5-mysql php5-curl php5-gd php5-intl php5-mcrypt php5
 apt-get -y install $BUILD_PACKAGES && \
 apt-get autoremove -y && \
 apt-get clean && \
-apt-get autoclean && \;
+apt-get autoclean;
 
 # tweak php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini && \
