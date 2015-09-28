@@ -1,6 +1,8 @@
-### tradesparq/gentilis
+### tradesparq/nginx-nginx-cache-purge-php-fpm
 
 #### Usage
-```bash
-sudo docker run -it -d --name="redis" -p 6379:6379 tradesparq/redis
-```
+  - [reference](https://hub.docker.com/r/dbooom/docker-nginx-ngx-cache-purge/)
+
+  ```bash
+  docker run -d --name nginx -v /path/to/www/:/var/www/ tradesparq/nginx-nginx-cache-purge-php-fpm:latest
+  ```
