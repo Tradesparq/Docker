@@ -71,8 +71,15 @@ sed -i -e "s/pm.max_requests = 500/pm.max_requests = 200/g" /etc/php5/fpm/pool.d
 RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php5/fpm/pool.d/www.conf && \
 find /etc/php5/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
+# Supervisor Config
+ADD ./supervisord.conf /etc/supervisord.conf
+
+ADD ./start.sh /start.sh
+RUN chmod 755 /start.sh
+
 # Expose nginx ports
 EXPOSE 80 443
 
 # Run nginx in forefront
-CMD ["nginx", "-g", "daemon off;"]
+# CMD ["nginx", "-g", "daemon off;"]
+CMD ["/bin/bash", "/start.sh"]
