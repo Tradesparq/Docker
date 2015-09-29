@@ -80,4 +80,4 @@ EXPOSE 80 443
 
 # Run nginx in forefront
 # CMD ["nginx", "-g", "daemon off;"]
-CMD ["/bin/bash", "/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
+CMD ["/usr/bin/supervisord"]
