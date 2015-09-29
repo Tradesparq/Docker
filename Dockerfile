@@ -74,9 +74,6 @@ find /etc/php5/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {}
 # Supervisor Config
 ADD ./supervisord.conf /etc/supervisord.conf
 
-ADD ./start.sh /start.sh
-RUN chmod 755 /start.sh
-
 # Expose nginx ports
 EXPOSE 80 443
 
