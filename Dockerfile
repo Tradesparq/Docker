@@ -72,8 +72,7 @@ RUN sed -i -e "s/;listen.mode = 0660/listen.mode = 0750/g" /etc/php5/fpm/pool.d/
 find /etc/php5/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # Supervisor Config
-ADD ./php5-fpm.conf /etc/supervisor/conf.d/php5-fpm.conf
-ADD ./nginx.conf /etc/supervisor/conf.d/nginx.conf
+ADD ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose nginx ports
 EXPOSE 80 443
