@@ -49,7 +49,7 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 RUN apt-get update && \
-BUILD_PACKAGES="php5-fpm php5-mysql php5-curl php5-gd php5-intl php5-mcrypt php5-memcache php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-pgsql pwgen" && \
+BUILD_PACKAGES="supervisor php5-fpm php5-mysql php5-curl php5-gd php5-intl php5-mcrypt php5-memcache php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-pgsql pwgen" && \
 apt-get -y install $BUILD_PACKAGES && \
 apt-get autoremove -y && \
 apt-get clean && \
@@ -82,4 +82,4 @@ EXPOSE 80 443
 
 # Run nginx in forefront
 # CMD ["nginx", "-g", "daemon off;"]
-CMD ["/bin/bash", "/start.sh"]
+CMD ["/bin/bash", "/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
