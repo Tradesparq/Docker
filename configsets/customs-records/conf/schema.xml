@@ -155,6 +155,9 @@
    <field name="Description" type="text_general" indexed="true" stored="true"/>
    <field name="RawDataSource" type="string" indexed="true" stored="false"/>
 
+   <field name="HsCodeNameEn" type="text_en" indexed="true" stored="true"/>
+   <!--We don't have Chinese analyzer now-->
+   <!--<field name="HsCodeNameCn" type="text_cn" indexed="true" stored="true"/>-->
    <field name="DescriptionEn" type="text_en" indexed="true" stored="true"/>
 
    <field name="CreationTime" type="date" indexed="true" stored="false"/>
